@@ -17,17 +17,24 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- link css -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    a{
-      --bs-link-color-rgb: white !important;
-      text-decoration: none !important;
-    }
-  </style>
   <title>PHP Dischi JSON</title>
 </head>
 <body>
-  <div class="container my-5">
+  <div id="app" class="container my-5">
+    {{ title }}
 
+    <div class="">
+      <div class="row">
+        <div class="col"
+        v-for="(item, index) in disk"
+        :key="index"
+        >
+        {{ index }}
+        </div>
+      </div>
+    </div>
   </div>
+  
+  <script src="js/script.js"></script>
 </body>
 </html>
