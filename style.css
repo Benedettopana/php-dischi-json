@@ -1,0 +1,54 @@
+body {
+  background-color: #393e46 !important;
+  color: #eee;
+}
+
+header {
+  background-color: #222831;
+}
+.disk-card {
+  width: 250px;
+  height: 250px;
+  background: #0092ca;
+  color: #222831;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+  box-shadow: 0px 3px 3px 0px rgba(34, 40, 49, 1);
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.disk-card p {
+  margin: 5px 7px;
+}
+
+.disk-card:hover {
+  transform: scale(1.05);
+}
+
+.disk-card img {
+  width: 100%;
+  object-fit: contain;
+  /* overflow: hidden; */
+  /* margin: 2% 15%; */
+}
+
+/* COLOR */
+.first-color {
+  background: #222831;
+}
+
+.second-color {
+  background: #393e46;
+}
+
+.third-color {
+  background: #0092ca;
+}
+
+.fourth-color {
+  background: #eeeeee;
+}

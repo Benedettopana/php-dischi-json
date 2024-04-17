@@ -15,22 +15,38 @@
 
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <!-- link css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
   <title>PHP Dischi JSON</title>
 </head>
-<body>
-  <div id="app" class="container my-5">
-    {{ title }}
 
-    <div class="">
-      <div class="row">
-        <div class="col"
+<body>
+  <div id="app" class="container-fluid my-5">
+    <h1 class="text-center">
+      {{ title }}
+    </h1>
+
+    <div class=" d-flex justify-content-center w-100 my-5">
+      <div class="row row-cols-3 justify-content-around  w-100 ">
+        <!--//? CARD -->
+        <div class="col d-flex justify-content-center my-4"
         v-for="(item, index) in disk"
         :key="index"
         >
-        {{ index }}
+          <div
+            class="disk-card cover"
+            @click="changeStatus()"
+          >
+            <div class="">
+              <img :src="item.poster" :alt="item.title">
+              <p v-if="visible">
+                Titolo: {{ item.title}}
+              </p>
+            </div>
+          </div>
         </div>
+        <!--//? /CARD -->
       </div>
     </div>
   </div>

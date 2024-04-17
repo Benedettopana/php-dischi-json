@@ -6,6 +6,7 @@ createApp({
       title: "Dischi",
       apiUrl: "server.php",
       disk: [],
+      visible: false,
     };
   },
   methods: {
@@ -14,6 +15,10 @@ createApp({
         this.disk = result.data;
         console.log(this.disk);
       });
+    },
+
+    changeStatus() {
+      this.visible = !this.visible;
     },
   },
 
