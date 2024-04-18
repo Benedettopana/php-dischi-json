@@ -67,34 +67,74 @@
         <div class="offcanvas-body small">
           <!-- form aggiunta -->
           <div class="">
-            <form action="index.php" method="POST">
+            <form action="index.php" method="">
               <!-- Titolo -->
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Aggiungi il titolo dell'album"
+                  v-model.trim="newDisk.title"
+                >
               </div>
               <!-- /Titolo -->
               <!-- Autore -->
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Autore</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Aggiungi il nome dell'autore"
+                  v-model.trim="newDisk.author"
+                >
               </div>
               <!-- /Autore -->
+              <!-- Anno -->
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Anno</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Aggiungi l'anno"
+                  v-model.trim="newDisk.year"
+                >
+              </div>
+              <!-- /Anno -->
               <!-- Copertina -->
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Copertina</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Aggiungi il link della copertina"
+                  v-model.trim="newDisk.poster"
+                >
               </div>
               <!-- /Copertina -->
               <!-- GENERE -->
               <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Copertina</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                <label for="formGroupExampleInput2" class="form-label">Genere</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Seleziona il genere"
+                  v-model.trim="newDisk.genre"
+                >
               </div>
               <!-- /GENERE -->
               <!-- Bottoni -->
               <div class="my-form-btn me-4 my-5">
-              <button type="submit" class="btn btn-primary me-3">Aggiungi</button>
+                <button
+                  @click="addNewDisk"
+                  type="button"
+                  class="btn btn-primary me-3"
+                >Aggiungi</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
               </div>
                 <!-- /Bottoni -->
