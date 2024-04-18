@@ -36,9 +36,29 @@ header {
   /* margin: 2% 15%; */
 }
 
+/** OFFCANVAS */
+.add {
+  position: fixed;
+  top: 82%;
+  right: 4%;
+}
+.offcanvas-bottom {
+  height: 60% !important;
+  background-color: #222831 !important;
+  color: #eee;
+}
+
+/*? BTN */
+.my-form-btn {
+  display: flex;
+  justify-content: end;
+}
+/*? /BTN */
+/** /OFFCANVAS  */
+
 /* COLOR */
 .first-color {
-  background: #222831;
+  background-color: #222831;
 }
 
 .second-color {
