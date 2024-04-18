@@ -13,6 +13,7 @@ createApp({
         year: "",
         poster: "",
         genre: "",
+        favorite: false,
       },
       noPoster:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo-W_Da6at5KnQHHqnXDj2HlS-yJJPLBqLTg&usqp=CAU",
@@ -69,15 +70,27 @@ createApp({
 
     //! del disk
     delDisk(index) {
+      if (confirm("Sei sicuro di voler eliminare l'album?")) {
+        const data = new FormData();
+        data.append("delDisk", index);
+
+        //? carico nelle API e aggiorno
+        this.reloadApi(data);
+        this.getApi();
+        //? /carico nelle API e aggiorno
+      }
+    },
+    //! /del disk
+
+    changePrefer(index) {
       const data = new FormData();
-      data.append("delDisk", index);
+      data.append("indexPref", index);
 
       //? carico nelle API e aggiorno
       this.reloadApi(data);
       this.getApi();
       //? /carico nelle API e aggiorno
     },
-    //! /del disk
   },
 
   mounted() {

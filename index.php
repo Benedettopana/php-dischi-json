@@ -24,6 +24,12 @@
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <!-- MD Bootstrap -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+  rel="stylesheet"
+  />
+
   <!-- link css -->
   <link rel="stylesheet" href="myStyle.css">
   <title>PHP Dischi JSON</title>
@@ -60,24 +66,31 @@
                   Genere: {{ item.genre}}
                 </p>
               </div>
-              <!-- Delete BTN -->
+              <!-- BTN -->
               <div class="delete pref">
                 <!-- pref BTN -->
-                <button type="button" class="btn btn-outline-success me-2">
-                  <i class="fa-solid fa-heart"></i>
+                <button
+                  type="button"
+                  class="btn btn-outline-success btn-floating me-2"
+                  @click.stop="changePrefer(index)"
+                >
+                  <i
+                    class="fa-solid fa-heart"
+                    :class="{'isFavorite': item.favorite}"
+                  ></i>
                 </button>
                 <!-- /pref BTN -->
-                <!-- /Del BTN -->
+                <!-- Del BTN -->
                 <button
                   @click.stop="delDisk(index)"
                   type="button"
-                  class="btn btn-outline-danger"
-                >
+                  class="btn btn-outline-danger btn-floating"
+                  >
                   <i class="fa-solid fa-trash"></i>
                 </button>
                 <!-- /Del BTN -->
               </div>
-              <!-- /Delete BTN -->
+              <!-- /BTN -->
             </div>
           </div>
         </div>
@@ -86,7 +99,7 @@
     </div>
     <!-- BTN AGGIUNGI -->
     <div class="add">
-      <button class="btn btn-primary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+      <button class="btn btn-primary btn-lg btn-floating" data-mdb-ripple-init type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
         aria-controls="offcanvasBottom"><i class="fa-solid fa-plus"></i> </button>
 
       <div class="offcanvas offcanvas-bottom my-offcanvas" tabindex="-1" id="offcanvasBottom"
@@ -94,7 +107,10 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasBottomLabel">Aggiungi un album</h5>
           <!-- BOTTONE DI CHIUSURA -->
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"> </button>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"> </button> -->
+          <button type="button" class="btn btn-outline-danger  btn-rounded btn-lg btn-floating" data-mdb-ripple-init data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           <!-- BOTTONE DI CHIUSURA -->
         </div>
         <!-- FORM -->
@@ -111,6 +127,7 @@
                   id="formGroupExampleInput"
                   placeholder="Aggiungi il titolo dell'album"
                   v-model.trim="newDisk.title"
+                  @keyup.enter="addNewDisk"
                 >
               </div>
               <!-- /Titolo -->
@@ -123,6 +140,7 @@
                   id="formGroupExampleInput2"
                   placeholder="Aggiungi il nome dell'autore"
                   v-model.trim="newDisk.author"
+                  @keyup.enter="addNewDisk"
                 >
               </div>
               <!-- /Autore -->
@@ -135,6 +153,7 @@
                   id="formGroupExampleInput2"
                   placeholder="Aggiungi l'anno"
                   v-model.trim="newDisk.year"
+                  @keyup.enter="addNewDisk"
                 >
               </div>
               <!-- /Anno -->
@@ -147,6 +166,7 @@
                   id="formGroupExampleInput2"
                   placeholder="Aggiungi il link della copertina"
                   v-model.trim="newDisk.poster"
+                  @keyup.enter="addNewDisk"
                 >
               </div>
               <!-- /Copertina -->
@@ -159,6 +179,8 @@
                   id="formGroupExampleInput2"
                   placeholder="Seleziona il genere"
                   v-model.trim="newDisk.genre"
+                  @keyup.enter="addNewDisk"
+                  @keyup.enter="addNewDisk"
                 >
               </div>
               <!-- /GENERE -->
@@ -182,6 +204,12 @@
     <!-- /BTN AGGIUNGI -->
   </div>
 
+  <!--//? MDN -->
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+  ></script>
+  <!--//? /MDN -->
   <script src="js/script.js"></script>
 </body>
 

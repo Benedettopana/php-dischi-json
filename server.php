@@ -14,6 +14,7 @@ if(isset($_POST['newTitle'])){
     'year' => $_POST['newYear'],
     'poster' => $_POST['newPoster'],
     'genre' => $_POST['newGenre'],
+    'favorite' => false
   ];
   $disk[] = $new_item;
   file_put_contents('data/dischi.json', json_encode($disk));
@@ -27,6 +28,14 @@ if(isset($_POST['delDisk'])){
   file_put_contents('data/dischi.json', json_encode($disk));
 }
 //! /Del disk
+
+//? Cambio pref
+if(isset($_POST['indexPref'])){
+  $indexToPref = $_POST['indexPref'];
+  $disk[$indexToPref]['favorite'] = !$disk[$indexToPref]['favorite'];
+  file_put_contents('data/dischi.json', json_encode($disk));
+}
+//? /Cambio pref
 
 header('Content-Type: application/json');
 

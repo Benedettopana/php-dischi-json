@@ -45,6 +45,10 @@ header {
   /* color: #eee; */
 }
 
+.isFavorite {
+  color: red !important;
+}
+
 /** OFFCANVAS */
 .add {
   position: fixed;
