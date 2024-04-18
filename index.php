@@ -68,7 +68,11 @@
                 </button>
                 <!-- /pref BTN -->
                 <!-- /Del BTN -->
-                <button type="button" class="btn btn-outline-danger">
+                <button
+                  @click.stop="delDisk(index)"
+                  type="button"
+                  class="btn btn-outline-danger"
+                >
                   <i class="fa-solid fa-trash"></i>
                 </button>
                 <!-- /Del BTN -->

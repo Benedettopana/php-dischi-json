@@ -26,11 +26,21 @@ createApp({
       });
     },
 
+    //% Chiamata reload API
+    reloadApi(data) {
+      axios.post(this.apiUrl, data).then((result) => {
+        this.disk = result.data;
+        // console.log(result.data);
+      });
+    },
+    //% /Chiamata reload API
+
     //TODO: Da fare
     changeStatus() {
       this.visible = !this.visible;
     },
 
+    //* Aggiungo un nuovo disco
     addNewDisk() {
       const data = new FormData();
       data.append("newTitle", this.newDisk.title);
@@ -42,17 +52,32 @@ createApp({
       data.append("newPoster", this.newDisk.poster);
       data.append("newGenre", this.newDisk.genre);
 
-      axios.post(this.apiUrl, data).then((result) => {
-        this.disk = result.data;
-        // console.log(result.data);
-      });
+      //? carico nelle API e aggiorno
+      this.reloadApi(data);
+      this.getApi();
+      //? /carico nelle API e aggiorno
 
+      //! Resetto il v-model
       this.newDisk.title = "";
       this.newDisk.author = "";
       this.newDisk.year = "";
       this.newDisk.poster = "";
       this.newDisk.genre = "";
+      //! /Resetto il v-model
     },
+    //* /Aggiungo un nuovo disco
+
+    //! del disk
+    delDisk(index) {
+      const data = new FormData();
+      data.append("delDisk", index);
+
+      //? carico nelle API e aggiorno
+      this.reloadApi(data);
+      this.getApi();
+      //? /carico nelle API e aggiorno
+    },
+    //! /del disk
   },
 
   mounted() {

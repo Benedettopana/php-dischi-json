@@ -6,7 +6,7 @@ $json_string = file_get_contents('data/dischi.json');
 $disk = json_decode($json_string, true);
 // var_dump($disk);
 
-// Add disk
+//% Add disk
 if(isset($_POST['newTitle'])){
   $new_item = [
     'title' => $_POST['newTitle'],
@@ -18,6 +18,15 @@ if(isset($_POST['newTitle'])){
   $disk[] = $new_item;
   file_put_contents('data/dischi.json', json_encode($disk));
 }
+//% Add disk
+
+//! Del disk
+if(isset($_POST['delDisk'])){
+  $diskToDel = $_POST['delDisk'];
+  array_splice($disk,$diskToDel, 1);
+  file_put_contents('data/dischi.json', json_encode($disk));
+}
+//! /Del disk
 
 header('Content-Type: application/json');
 
