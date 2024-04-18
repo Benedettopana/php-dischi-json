@@ -14,6 +14,8 @@ createApp({
         poster: "",
         genre: "",
       },
+      noPoster:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo-W_Da6at5KnQHHqnXDj2HlS-yJJPLBqLTg&usqp=CAU",
     };
   },
   methods: {
@@ -34,6 +36,9 @@ createApp({
       data.append("newTitle", this.newDisk.title);
       data.append("newAuthor", this.newDisk.author);
       data.append("newYear", this.newDisk.year);
+      if (this.newDisk.poster == "") {
+        this.newDisk.poster = this.noPoster;
+      }
       data.append("newPoster", this.newDisk.poster);
       data.append("newGenre", this.newDisk.genre);
 

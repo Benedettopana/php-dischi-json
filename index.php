@@ -38,20 +38,49 @@
     <div class=" d-flex justify-content-center w-100 my-5">
       <div class="row row-cols-3 justify-content-around  w-100 ">
         <!--//? CARD -->
-        <div class="col d-flex justify-content-center my-4" v-for="(item, index) in disk" :key="index">
+        <div
+          class="col d-flex justify-content-center my-4"
+          v-for="(item, index) in disk"
+          :key="index"
+        >
           <div class="disk-card cover" @click="changeStatus()">
             <div class="">
               <img :src="item.poster" :alt="item.title">
-              <p v-if="visible">
-                Titolo: {{ item.title}}
-              </p>
+              <div class="info mt-3 mb-5 text-white">
+                <p>
+                  Titolo: {{ item.title}}
+                </p>
+                <p>
+                  Autore: {{ item.author}}
+                </p>
+                <p>
+                  Anno: {{ item.year}}
+                </p>
+                <p>
+                  Genere: {{ item.genre}}
+                </p>
+              </div>
+              <!-- Delete BTN -->
+              <div class="delete pref">
+                <!-- pref BTN -->
+                <button type="button" class="btn btn-outline-success me-2">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <!-- /pref BTN -->
+                <!-- /Del BTN -->
+                <button type="button" class="btn btn-outline-danger">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+                <!-- /Del BTN -->
+              </div>
+              <!-- /Delete BTN -->
             </div>
           </div>
         </div>
         <!--//? /CARD -->
       </div>
     </div>
-
+    <!-- BTN AGGIUNGI -->
     <div class="add">
       <button class="btn btn-primary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
         aria-controls="offcanvasBottom"><i class="fa-solid fa-plus"></i> </button>
@@ -64,6 +93,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"> </button>
           <!-- BOTTONE DI CHIUSURA -->
         </div>
+        <!-- FORM -->
         <div class="offcanvas-body small">
           <!-- form aggiunta -->
           <div class="">
@@ -142,8 +172,10 @@
           </div>
           <!-- /form aggiunta -->
         </div>
+        <!-- /FORM -->
       </div>
     </div>
+    <!-- /BTN AGGIUNGI -->
   </div>
 
   <script src="js/script.js"></script>
